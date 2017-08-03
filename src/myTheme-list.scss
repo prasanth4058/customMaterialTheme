@@ -1,15 +1,15 @@
-@mixin zyme-list-theme($theme) {
+@mixin myTheme-list-theme($theme) {
 
   $primary: map-get($theme, primary);
   $warn: map-get($theme, warn);
   $background: map-get($theme, background);
   $foreground: map-get($theme, foreground);
 
-  .zyme-list {
+  .my-list {
     border-bottom: 1px solid mat-color($foreground, divider);
   }
 
-  .zyme-list-item {
+  .my-list-item {
 
     &:hover, &:active, &:focus {
       background-color: mat-color($background, hover);
