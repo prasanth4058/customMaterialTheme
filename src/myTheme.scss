@@ -1,0 +1,43 @@
+@import '~@angular/material/theming';
+
+//Import Custom mixin for all the myTheme list components
+@import 'myTheme-list.scss';
+
+
+//Include material core theme
+@include mat-core();
+
+//myTheme theme colors
+$myTheme-primary: $mat-grey;
+$myTheme-secondary: $mat-blue;
+$myTheme-warn: $mat-red;
+
+$myTheme-app-primary: mat-palette($myTheme-primary);
+$myTheme-app-accent:  mat-palette($myTheme-secondary, A200, A100, A400);
+$myTheme-app-warn:    mat-palette($myTheme-warn);
+
+$myTheme-app-theme: mat-light-theme($myTheme-app-primary, $myTheme-app-accent, $myTheme-app-warn);
+
+//inlcude the myTheme theme with angular theme
+@include angular-material-theme($myTheme-app-theme);
+
+.myTheme {
+	margin: 0;
+}
+
+.myTheme-header.mat-toolbar {
+	min-height: 30px !important;
+}
+
+.myTheme-header.mat-toolbar .mat-toolbar-row {
+	height: auto;
+}
+
+//Call to custom mixin
+@mixin custom-theme($theme) {
+  @include myTheme-list-theme($theme);
+}
+
+//Include Custom theme for all the myTheme list components
+@include custom-theme($myTheme-app-theme);
+
